@@ -1,0 +1,22 @@
+@import "../mixins";
+
+@include modal(settings);
+
+.settings {
+    .loader {
+        margin: 10px auto 0;
+    }
+    &__window {
+        background: $white-color;
+    }
+
+    &__submit {
+        background-color: none;
+        background: url("../../public/images/arrow-up-icon-icons-72374.svg") no-repeat scroll;
+        background-size: 15px;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        box-shadow: none;
+    }
+}

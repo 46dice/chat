@@ -1,0 +1,39 @@
+@import "../mixins";
+
+@include modal(authorization);
+
+.authorization {
+    background-color: $color-modal-background-authorization;
+    
+    .loader {
+        margin: 10px auto 0;
+    }
+
+    &__form-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__form {
+        &-block {
+            display: block;
+        }
+    }
+
+    &__submit {
+        background: none;
+        width: 100%;
+        height: inherit;
+        border-radius: inherit;
+    }
+    &__input {
+        margin-bottom: 10px;
+        border: 1px solid #f50606;
+    }
+    &__submit--btn-boxes {
+        display: flex;
+        gap: 10px;
+    }
+}

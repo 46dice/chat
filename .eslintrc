@@ -1,0 +1,59 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
+    "extends": ["airbnb"],
+    "globals": {
+        "window": true,
+        "document": true,
+        "localStorage": true,
+        "typescript": true
+    },
+    "rules": {
+        "no-undef": "off",
+        "no-unused-vars": "warn",
+        "no-console": "off",
+        "object-shorthand": "off",
+        "import/prefer-default-export": "off",
+        "prefer-const": "warn",
+        "no-var": "error",
+        "indent": ["error", 4],
+        "no-trailing-spaces": "off",
+        "linebreak-style": [0, "error", "windows"],
+        "no-magic-numbers": [
+            "error",
+            {
+                "ignore": [0, 1, -1]
+            }
+        ],
+        "import/no-unresolved": [0],
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "import/order": [
+            "error",
+            {
+                "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"]
+            }
+        ],
+        "quote-props": ["error", "consistent-as-needed"],
+        "object-curly-newline": ["error", {
+            "ObjectExpression": "always",
+            "ObjectPattern": { "multiline": true },
+            "ImportDeclaration": "never",
+            "ExportDeclaration": { "multiline": true, "minProperties": 4 }
+        }]
+    }
+}
