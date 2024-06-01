@@ -34,6 +34,12 @@ class SocketHandler {
         this.webSocket.onmessage = this.handleOnMessage;
         this.webSocket.onclose = this.handleCheckOnClose;
         this.webSocket.onopen = this.handleOnOpen;
+
+        const socketNoOpen = this.webSocket?.readyState === 0;
+
+        if (socketNoOpen) {
+            openModal(main.loader);
+        }
     }
 
     public sendMessage(message: string) {
@@ -44,17 +50,13 @@ class SocketHandler {
         const closeCode = 1000;
         this.webSocket?.close(closeCode);
     }
-
+    
     private handleOnOpen = () => {
-        const socketOpened = this.webSocket?.readyState === 1;
+        const socketOpen = this.webSocket?.readyState === 1;
 
-        if (socketOpened) {
-            openModal(main.loader);
-        }
-        
-        setTimeout(() => {
+        if (socketOpen) {
             closeModal(main.loader);
-        }, 1000);
+        }
     };
 
     private handleCheckOnClose = (event: CloseEvent) => {
