@@ -6,21 +6,39 @@
     <link rel="icon" type="image/svg+xml" href="#" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New chat</title>
+    <link rel="stylesheet" href="src/css/style.min.css">
 </head>
 
 <body class="body">
     <main class="main main__chat chat">
         <div class="container">
+            <div class="loader__wrapper hide">
+                <div class="modal__loader">
+                    <div class="loader__window">
+                        <div class="loader show">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                            <div class="bar4"></div>
+                            <div class="bar5"></div>
+                            <div class="bar6"></div>
+                            <div class="bar7"></div>
+                            <div class="bar8"></div>
+                            <div class="bar9"></div>
+                            <div class="bar10"></div>
+                            <div class="bar11"></div>
+                            <div class="bar12"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="chat__inner">
-
                 <div class="chat__header-btns">
                     <button class="chat__btn-settings">Настройки</button>
                     <button class="chat__btn-exit">Выйти</button>
                 </div>
-                
                 <div class="chat__window window">
                     <div class="window-body">
-
                         <div class="window__message-other window__message message-add-complete">
                             <div class="window__message-body">
                                 <span class="user">Собеседник: </span>
@@ -30,7 +48,6 @@
                                 <time class="window__text-time" datetime>18:45</time>
                             </div>
                         </div>
-
                         <div class="window__message-other window__message message-add-complete">
                             <div class="window__message-body">
                                 <span class="user">Собеседник: </span>

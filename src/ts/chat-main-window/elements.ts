@@ -10,6 +10,7 @@ export const main: Main = {
     chatClientWindow: document.querySelector('.window-body'),
     chatWindow: document.querySelector('.chat__window'),
     chat: document.querySelector('.chat'),
+    loader: document.querySelector('.loader__wrapper');
 };
 
 export const settings: SettingsElements = {

@@ -1,8 +1,9 @@
 /* eslint-disable prefer-destructuring */
 import Cookies from 'js-cookie';
-import { scrollToMessage } from '../page-operations';
+import { closeModal, openModal, scrollToMessage } from '../page-operations';
 import { URL } from '../constants';
 import { createMessageFromSocket } from './send-message';
+import { main } from './elements';
 
 export function connectWebSocket(url: string, token: string): WebSocket {
     return new WebSocket(url + token);
@@ -32,6 +33,7 @@ class SocketHandler {
         this.webSocket = new WebSocket(`${this.wssUrl}${this.token}`);
         this.webSocket.onmessage = this.handleOnMessage;
         this.webSocket.onclose = this.handleCheckOnClose;
+        this.webSocket.onopen = this.handleOnOpen;
     }
 
     public sendMessage(message: string) {
@@ -43,9 +45,25 @@ class SocketHandler {
         this.webSocket?.close(closeCode);
     }
 
-    private handleCheckOnClose = () => {
+    private handleOnOpen = () => {
+        const socketOpened = this.webSocket?.readyState === 1;
+
+        if (socketOpened) {
+            openModal(main.loader);
+        }
+        
+        setTimeout(() => {
+            closeModal(main.loader);
+        }, 1000);
+    };
+
+    private handleCheckOnClose = (event: CloseEvent) => {
         const timeToReconnect = 100;
-        setTimeout(() => this.connect(), timeToReconnect);
+        const disableCode = 1006;
+
+        if (event.code === disableCode) {
+            setTimeout(() => this.connect(), timeToReconnect);
+        }
     };
 
     // eslint-disable-next-line class-methods-use-this

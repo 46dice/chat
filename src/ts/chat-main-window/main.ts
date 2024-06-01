@@ -73,6 +73,7 @@ async function handleScrollOnWindowChat() {
 }
 
 function handleExit() {
+    socketHandle.close();
     const allCookies = Cookies.get();
     localStorage.clear();
 

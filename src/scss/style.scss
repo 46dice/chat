@@ -1,8 +1,10 @@
+@import "reset";
 @import "fonts";
 @import "vars";
 @import "mixins";
 
 @import "loader";
+@import "popups/loader-window";
 
 * {
     font-family: "mulish";
@@ -48,6 +50,7 @@
     max-width: 1280px;
     padding: 0px 15px;
     margin: 0 auto;
+    position: relative;
 }
 
 .grid {
